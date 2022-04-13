@@ -1,8 +1,27 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.header{
+  padding-top: 30px;
+  text-align: center;
+  background-color: gainsboro;
+  padding-bottom: 20px;
+}
+.header div{
+padding-bottom: 20px;
+}
+.footer{
+  padding: 50px;
+  text-align: center;
+  background-color: gainsboro;
+  
+}
+.startsida{
+  text-align: center;
 }
