@@ -6,18 +6,18 @@ router.get("/", async function (req, res) {
   const db = req.app.locals.db;
 
   const sql = `
-  SELECT game,
-    player,
-    score_date,
-    points
-    FROM highscores
+  SELECT id,
+    title,
+    genre,
+    release_date
+    FROM game
 `;
 
   const result = await db.query(sql);
 
-  res.render("index", {
+  res.render("admin/games", {
     title: "title",
-    allHighscores: result.rows,
+    allGames: result.rows,
   });
 });
 

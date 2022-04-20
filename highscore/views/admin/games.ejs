@@ -1,0 +1,25 @@
+<!-- ---------------------------------------------------- -->
+<!-- Search results                                       -->
+<!-- ---------------------------------------------------- -->
+<section>
+  <% allGames.forEach(games => { %>
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Release date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= games.id %></td>
+        <td><%= games.title %></td>
+        <td><%= games.genre %></td>
+        <td><%= games.release_date %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% }) %>
+</section>
