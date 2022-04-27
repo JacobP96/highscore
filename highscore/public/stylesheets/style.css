@@ -27,4 +27,32 @@ padding-bottom: 20px;
 }
 .highscore{
   border-style: solid; 
+  margin: 20px;
+}
+
+.game{
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.points{
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  text-align: right;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.player_date{
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.Highscoretext{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  margin: 10px;
+  text-align: center;
 }

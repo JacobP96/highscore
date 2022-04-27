@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    Du har sökt efter ett spel
-  </body>
-</html>
+<section class="search-results mb-4">
+  <div class="text-center mb-4">Hittade <%= products.length %> produkter</div>
+  <div class="highscore">
+    <a href=""></a>
+    <div class="container">
+      <div class="row">
+        <% products.forEach(product => { %>
+        <div class="game col-sm"><%= product.title %></div>
+        <div class="col-sm"><%= product.image_url %></div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <%= product.genre %>,<%= product.release_date %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</section>

@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 // GET http://localhost:3000/
-router.get("/:title", async function (req, res) {
+router.get("/", async function (req, res) {
   const db = req.app.locals.db;
 
   const sql = `
@@ -15,9 +15,9 @@ router.get("/:title", async function (req, res) {
 
   const result = await db.query(sql);
 
-  res.render("games", {
+  res.render("admin", {
     title: "Sök spel",
-    allInfo: result.rows,
+    allGames: result.rows,
   });
 });
 

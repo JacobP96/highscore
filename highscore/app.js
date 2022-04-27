@@ -8,8 +8,10 @@ var expressLayouts = require("express-ejs-layouts");
 const { Pool } = require("pg");
 
 var indexRouter = require("./routes/index");
-var gamesRouter = require("./routes/games");
+var highscoreRouter = require("./routes/highscore");
+var adminRouter = require("./routes/admin");
 var searchRouter = require("./routes/search");
+var gamesRouter = require("./routes/games");
 
 var app = express();
 
@@ -33,8 +35,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/highscore", indexRouter);
+app.use("/index", indexRouter);
 app.use("/search", searchRouter);
+app.use("/highscore", highscoreRouter);
+app.use("/admin", adminRouter);
 app.use("/games", gamesRouter);
 
 // catch 404 and forward to error handler

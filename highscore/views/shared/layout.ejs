@@ -11,6 +11,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <title>hej</title>
   </head>
   <body>
     <header class="header">
@@ -23,9 +24,14 @@
         />
       </div>
       <div>
-        <input type="text" placeholder="Sök spel" />
-        <a href="http://localhost:3000/search">
-          <button type="button">Sök</button>
+        <form action="/search" class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Sök produkt"
+            aria-label="Sök produkt"
+            name="q"
+          />
         </a>
       </div>
     </header>

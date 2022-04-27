@@ -1,0 +1,13 @@
+<section>
+  <% allInfo.forEach(info => { %>
+    <div class="container">
+      <div class="row">
+        <div class="game col-sm"><%= info.title %></div>
+        <div class="points col-sm"><%= info.genre %></div>
+      </div>
+      <div class="row">
+        <div class="player_date col-sm">
+          <%= info.title %>,<%= info.release_date %>
+        </div>
+  <% }) %>
+</section>
