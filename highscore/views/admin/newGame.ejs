@@ -1,0 +1,34 @@
+<form>
+  <div class="newGame">
+    <h1>Nytt spel</h1>
+    <div>
+      <label>Title:</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div>
+      <label>Beskrivning</label>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+    <div>
+      <label>Bild</label>
+      <input type="file" accept="image/*" class="form-control" />
+    </div>
+    <div>
+      <label>Genre</label>
+      <select class="form-control">
+        <option>Puzzle</option>
+        <option>Shooter</option>
+        <option>Platform</option>
+        <option>Action-adventyre</option>
+        <option>Sport</option>
+      </select>
+    </div>
+    <div>
+      <label>Lanseringsår:</label>
+      <input type="text" maxlength="4" pattern="[0-9]" class="form-control" />
+    </div>
+    <div>
+      <a class="btn btn-primary" href="/admin/games">Lägg till</a>
+    </div>
+  </div>
+</form>

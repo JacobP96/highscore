@@ -16,7 +16,7 @@ router.get("/:title", async function (req, res) {
   const result = await db.query(sql);
 
   res.render("games", {
-    title: "Sök spel",
+    title: "spel",
     allInfo: result.rows,
   });
 });

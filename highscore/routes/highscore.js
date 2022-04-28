@@ -16,7 +16,7 @@ router.get("/", async function (req, res) {
   const result = await db.query(sql);
 
   res.render("highscore", {
-    title: "title",
+    title: "highscore",
     allHighscores: result.rows,
   });
 });
