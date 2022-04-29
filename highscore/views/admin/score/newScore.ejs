@@ -1,0 +1,27 @@
+<form>
+  <div class="newGame">
+    <h1>Nytt highscore</h1>
+    <div>
+      <label>Spel</label>
+      <select class="form-control">
+        <option>Puzzle</option>
+      </select>
+    </div>
+    <div>
+      <label>Spelare</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Datum</label>
+        <input type="date" min="2022-01-01" max="2025-12-31" maxlenght="8" class="form-control" />
+      </div>
+
+    <div>
+        <label>Poäng</label>
+        <input type="text" pattern="[0-9]" class="form-control" />
+      </div>
+   
+      <a class="btn btn-primary" href="/admin/games">Lägg till</a>
+    </div>
+  </div>
+</form>

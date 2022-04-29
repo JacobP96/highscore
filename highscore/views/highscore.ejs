@@ -2,7 +2,7 @@
   <h1 class="Highscoretext">Highscores</h1>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <% allHighscores.forEach(higscore => { %>
-  <a href="/games/tetris">
+  <a href="/games/<%= higscore.game %>">
     <div class="highscore">
       <div class="container">
         <div class="row">

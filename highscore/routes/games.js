@@ -12,12 +12,20 @@ router.get("/:title", async function (req, res) {
     release_date
     FROM game
 `;
-
+  const sql2 = `
+  SELECT game,
+  player,
+  score_date,
+  points
+  FROM highscores
+`;
   const result = await db.query(sql);
+  const result2 = await db.query(sql2);
 
-  res.render("games", {
+  res.render("gameInfo", {
     title: "spel",
-    allInfo: result.rows,
+    gameInfo: result.rows,
+    highscoreInfo: result2.rows,
   });
 });
 

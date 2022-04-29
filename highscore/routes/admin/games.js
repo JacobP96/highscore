@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 // GET http://localhost:3000/
-router.get("/games", async function (req, res) {
+router.get("/", async function (req, res) {
   const db = req.app.locals.db;
 
   const sql = `
@@ -15,23 +15,16 @@ router.get("/games", async function (req, res) {
 
   const result = await db.query(sql);
 
-  res.render("admin/games", {
-    title: "Sök spel",
+  res.render("admin/games/index", {
+    title: "Dina Spel",
     allGames: result.rows,
   });
 });
 
 // GET http://localhost:3000/
-router.get("/games/new", function (req, res) {
-  res.render("admin/newGame", {
+router.get("/new", function (req, res) {
+  res.render("admin/games/newGame", {
     title: "Nytt spel",
-  });
-});
-
-// GET http://localhost:3000/
-router.get("/score/new", function (req, res) {
-  res.render("admin/newScore", {
-    title: "Nytt Highscore",
   });
 });
 
