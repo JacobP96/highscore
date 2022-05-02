@@ -6,9 +6,9 @@ var logger = require("morgan");
 
 var expressLayouts = require("express-ejs-layouts");
 const { Pool } = require("pg");
+const session = require("express-session");
 
 var indexRouter = require("./routes/index");
-var highscoreRouter = require("./routes/highscore");
 var searchRouter = require("./routes/search");
 var gamesRouter = require("./routes/games");
 var gamesAdminRouter = require("./routes/admin/games");
@@ -36,9 +36,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/index", indexRouter);
+app.use(session({ secret: "secretpassword" }));
+
+app.use("/", indexRouter);
 app.use("/search", searchRouter);
-app.use("/highscore", highscoreRouter);
 app.use("/admin/games", gamesAdminRouter);
 app.use("/admin/score", scoreAdminRouter);
 app.use("/games", gamesRouter);

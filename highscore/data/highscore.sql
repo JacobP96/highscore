@@ -4,25 +4,28 @@ title VARCHAR(50) NOT NULL,
 description VARCHAR(250) NOT NULL,
 image_url VARCHAR(250) NOT NULL,
 genre VARCHAR(50) NOT NULL,
-release_date DATE(50) NOT NULL,
+release_date INTEGER NOT NULL,
+url_slug VARCHAR(50) NOT NULL,
 PRIMARY KEY (id)
 );
 
 INSERT INTO public.game 
 (title,
  description,
- imageUrl,
+ image_url,
  genre,
- releaseYear,
+ release_date,
+ url_slug
  )
 VALUES
 ('Tetris',
  ' Lorem ipsum dolor sit amet consectetur adipisicing elit. 
  Similique officiis quod earum aliquid possimus alias. 
  Tenetur vitae, fugit tempore magni enim velit aspernatur autem optio rem officiis quisquam quasi ipsum!',
- 'https://via.placeholder.com/320x320.png?text=Tetris',
- 'Puzzle'
+ 'https://via.placeholder.com/140x100',
+ 'Puzzle',
  '1984',
+ 'Tetris'
 );
 
 CREATE TABLE highscores (

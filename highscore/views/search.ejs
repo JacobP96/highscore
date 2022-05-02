@@ -1,17 +1,14 @@
 <section class="search-results mb-4">
-  <div class="text-center mb-4">Hittade <%= products.length %> produkter</div>
+  <div class="text-center mb-4">Hittade <%= Games.length %> produkter</div>
   <div class="highscore">
-    <a href=""></a>
     <div class="container">
       <div class="row">
-        <% products.forEach(product => { %>
-        <div class="game col-sm"><%= product.title %></div>
-        <div class="col-sm"><%= product.image_url %></div>
+        <% Games.forEach(game => { %>
+        <div class="game col-sm"><%= game.title %></div>
+        <div class="col-sm"><%= game.image_url %></div>
       </div>
       <div class="row">
-        <div class="col-sm">
-          <%= product.genre %>,<%= product.release_date %>
-        </div>
+        <div class="col-sm"><%= game.genre %>,<%= game.release_date %></div>
       </div>
     </div>
   </div>

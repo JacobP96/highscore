@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
   res.render("search", {
     title: "Sökresultat",
-    products: result.rows,
+    Games: result.rows,
   });
 });
 

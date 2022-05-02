@@ -1,31 +1,82 @@
 var express = require("express");
 var router = express.Router();
 
-// GET http://localhost:3000/
-router.get("/", async function (req, res) {
+// GET /admin/products
+router.get("/", async (req, res) => {
   const db = req.app.locals.db;
 
+  const games = await getGames(db);
+
+  res.render("admin/games/index", {
+    title: "Spel",
+    games,
+  });
+});
+
+// GET /admin/products/new
+router.get("/new", async (req, res) => {
+  res.render("admin/games/newGame", {
+    title: "Nytt Spel",
+  });
+});
+
+router.post("/new", async (req, res) => {
+  const { Title, Description, ImageUrl, Genre, ReleaseDate } = req.body;
+
+  const game = {
+    Title,
+    Description,
+    ImageUrl,
+    Genre,
+    ReleaseDate,
+    UrlSlug: generateURLSlug(Title),
+  };
+  const db = req.app.locals.db;
+
+  await saveGame(game, db);
+
+  res.redirect("/admin/games");
+});
+
+const generateURLSlug = (Title) => Title.replace(" ", "-").toLowerCase();
+
+async function saveGame(game, db) {
   const sql = `
-  SELECT id,
-    title,
-    genre,
-    release_date
-    FROM game
-`;
+        INSERT INTO game (
+          title,
+          description,
+          image_url,
+          genre,
+          release_date,
+          url_slug
+        ) VALUES ($1,$2,$3,$4,$5,$6)
+    `;
+
+  await db.query(sql, [
+    game.Title,
+    game.Description,
+    game.ImageUrl,
+    game.Genre,
+    game.ReleaseDate,
+    game.UrlSlug,
+  ]);
+}
+
+async function getGames(db) {
+  const sql = `
+        SELECT id,
+               title,
+               description,
+               image_url,
+               genre,
+               release_date,
+               url_slug
+          FROM game
+    `;
 
   const result = await db.query(sql);
 
-  res.render("admin/games/index", {
-    title: "Dina Spel",
-    allGames: result.rows,
-  });
-});
-
-// GET http://localhost:3000/
-router.get("/new", function (req, res) {
-  res.render("admin/games/newGame", {
-    title: "Nytt spel",
-  });
-});
+  return result.rows;
+}
 
 module.exports = router;
