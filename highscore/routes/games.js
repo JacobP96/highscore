@@ -2,14 +2,16 @@ var express = require("express");
 var router = express.Router();
 
 // GET http://localhost:3000/
-router.get("/:title", async function (req, res) {
+router.get("/:url_slug", async function (req, res) {
   const db = req.app.locals.db;
 
   const sql = `
-  SELECT id,
+  SELECT 
     title,
     genre,
-    release_date
+    release_date,
+    description,
+    url_slug
     FROM game
 `;
   const sql2 = `
@@ -24,7 +26,7 @@ router.get("/:title", async function (req, res) {
 
   res.render("gameInfo", {
     title: "Spelets title",
-    gameInfo: result.row,
+    gamesInfo: result.row,
     highscoreInfo: result2.row,
   });
 });
