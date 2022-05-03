@@ -1,16 +1,17 @@
 <section>
-  <% gamesInfo.forEach(game => { %>
+  
     <div class="container">
       <div class="row">
-        <div class="game col-sm"><%= game.title %></div>
-        <div class="points col-sm"><%= game.genre %></div>
+        <% Games.forEach(gameInfo => { %>
+        <div class="game col-sm"><%= gameInfo.title %></div>
+        <div class="points col-sm"><%= gameInfo.genre %></div>
       </div>
       <div class="row">
         <div class="player_date col-sm">
-          <%= game.description %>,<%= game.release_date %>
+          <%= gameInfo.description %>,<%= gameInfo.release_date %>
         </div>
         <% }) %>
-  <% highscoreInfo.forEach(highscore => { %>
+  <% Highscores.forEach(highscore => { %>
     <div class="container">
       <div class="row">
         <div class="game col-sm"><%= highscore.game %></div>
