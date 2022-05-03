@@ -3,12 +3,20 @@
     <div class="container">
       <div class="row">
         <% Games.forEach(gameInfo => { %>
-        <div class="game col-sm"><%= gameInfo.title %></div>
-        <div class="points col-sm"><%= gameInfo.genre %></div>
-      </div>
-      <div class="row">
-        <div class="player_date col-sm">
-          <%= gameInfo.description %>,<%= gameInfo.release_date %>
+          <div class="col InfoImg">
+            <img
+              src="<%= gameInfo.image_url %>"
+              alt=""
+              class="mb-2"
+              style="width: 400px; height: 400px"
+            />
+          </div>
+        <div class="col">
+            <span class="game "> <%= gameInfo.title %></span> 
+              <div ><%= gameInfo.release_date %>,<%= gameInfo.genre %></div>
+              <div><%= gameInfo.description %></div>
+            </div>
+          </div>
         </div>
         <% }) %>
   <% Highscores.forEach(highscore => { %>

@@ -5,6 +5,8 @@ var router = express.Router();
 router.get("/", async (req, res) => {
   const searchTerm = req.query.q;
 
+  var searchWord = searchTerm;
+
   const db = req.app.locals.db;
 
   const sql = `
@@ -16,8 +18,9 @@ router.get("/", async (req, res) => {
   const result = await db.query(sql, [searchTerm]);
 
   res.render("search", {
-    title: "Sökresultat",
+    title: "Sök spel",
     Games: result.rows,
+    searchWord,
   });
 });
 

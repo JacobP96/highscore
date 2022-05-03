@@ -1,14 +1,25 @@
 <section class="search-results mb-4">
-  <div class="text-center mb-4">Hittade <%= Games.length %> produkter</div>
+  <div class="text-center mb-4">
+    Hittade <%= Games.length %> träffar på "<%= searchWord%>"
+  </div>
   <div class="highscore">
     <div class="container">
       <div class="row">
         <% Games.forEach(game => { %>
-        <div class="game col-sm"><%= game.title %></div>
-        <div class="col-sm"><%= game.image_url %></div>
-      </div>
-      <div class="row">
-        <div class="col-sm"><%= game.genre %>,<%= game.release_date %></div>
+
+        <div class="col">
+          <span class="game"><%= game.title %></span>
+          <div><%= game.genre %>,<%= game.release_date %></div>
+        </div>
+
+        <div class="col searchImg">
+          <img
+            src="<%= game.image_url %>"
+            alt=""
+            class="mb-2"
+            style="width: 140px; height: 100px"
+          />
+        </div>
       </div>
     </div>
   </div>
