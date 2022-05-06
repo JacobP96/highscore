@@ -32,6 +32,7 @@ padding-bottom: 20px;
 .highscore{
   border-style: solid; 
   margin: 20px;
+  color: black;
   
 }
 .highscore:hover{

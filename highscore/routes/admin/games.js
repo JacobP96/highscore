@@ -29,7 +29,6 @@ router.post("/new", async (req, res) => {
     ImageUrl,
     Genre,
     ReleaseDate,
-    UrlSlug: generateURLSlug(Title),
   };
   const db = req.app.locals.db;
 
@@ -38,8 +37,6 @@ router.post("/new", async (req, res) => {
   res.redirect("/admin/games");
 });
 
-const generateURLSlug = (Title) => Title.replace(" ", "-").toLowerCase();
-
 async function saveGame(game, db) {
   const sql = `
         INSERT INTO game (
@@ -47,9 +44,8 @@ async function saveGame(game, db) {
           description,
           image_url,
           genre,
-          release_date,
-          url_slug
-        ) VALUES ($1,$2,$3,$4,$5,$6)
+          release_date
+        ) VALUES ($1,$2,$3,$4,$5)
     `;
 
   await db.query(sql, [
@@ -58,7 +54,6 @@ async function saveGame(game, db) {
     game.ImageUrl,
     game.Genre,
     game.ReleaseDate,
-    game.UrlSlug,
   ]);
 }
 
@@ -69,8 +64,7 @@ async function getGames(db) {
                description,
                image_url,
                genre,
-               release_date,
-               url_slug
+               release_date
           FROM game
     `;
 

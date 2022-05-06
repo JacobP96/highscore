@@ -9,8 +9,10 @@ router.get("/", async function (req, res) {
   SELECT game,
     player,
     score_date,
-    points
-    FROM highscores
+    points,
+    url_slug
+    FROM score
+    ORDER BY points DESC
 `;
 
   const result = await db.query(sql);

@@ -5,32 +5,35 @@ var router = express.Router();
 router.get("/:urlSlug", async function (req, res) {
   const db = req.app.locals.db;
 
+  const urlSlug = req.params.urlSlug;
+
   const sql = `
-  SELECT game,
-    player,
-    score_date,
-    points
-    FROM highscores
+  SELECT
+   * 
+   from score
+   WHERE url_slug = $1
+   order by points DESC 
+   Limit 10
+
 `;
 
   const sql2 = `
-SELECT id,
-title,
-description,
-image_url,
-genre,
-release_date,
-url_slug
-FROM game
+  SELECT
+   * 
+   from game
+   WHERE title = $1
+  
+
 `;
 
-  const result = await db.query(sql);
-  const result2 = await db.query(sql2);
+  const result = await db.query(sql, [urlSlug]);
+
+  const result2 = await db.query(sql2, [urlSlug]);
 
   res.render("gameInfo", {
-    title: "highscore",
-    Highscores: result.rows,
-    Games: result2.rows,
+    title: "title",
+    game: result.rows,
+    score: result2.rows,
   });
 });
 

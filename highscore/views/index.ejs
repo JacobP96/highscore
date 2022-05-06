@@ -1,17 +1,17 @@
 <section>
   <h1 class="Highscoretext">Highscores</h1>
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <% allHighscores.forEach(higscore => { %>
-  <a href="/games/<%= higscore.game %>">
+  <% allHighscores.forEach(highscore => { %>
+  <a href="/games/<%= highscore.url_slug %>">
     <div class="highscore">
       <div class="container">
         <div class="row">
-          <div class="game col-sm"><%= higscore.game %></div>
-          <div class="points col-sm"><%= higscore.points %></div>
+          <div class="game col-sm"><%= highscore.game %></div>
+          <div class="points col-sm"><%= highscore.points %></div>
         </div>
         <div class="row">
           <div class="player_date col-sm">
-            <%= higscore.player %>,<%= higscore.score_date %>
+            <%= highscore.player %>,<%= highscore.score_date %>
           </div>
         </div>
       </div>
