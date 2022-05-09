@@ -2,22 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col InfoImg">
-        <% score.forEach(scores => { %>
         <img
-          src="<%= scores.image_url %>"
+          src="<%= score.image_url %>"
           alt=""
           class="mb-2"
           style="width: 400px; height: 400px"
         />
       </div>
       <div class="col">
-        <span class="game"> <%= scores.title %></span>
-        <div><%= scores.genre %>,<%= scores.release_date %></div>
-        <div><%= scores.description %></div>
+        <span class="game"> <%= score.title %></span>
+        <div><%= score.genre %>,<%= score.release_date %></div>
+        <div><%= score.description %></div>
       </div>
     </div>
   </div>
-  <% }) %>
 </section>
 <section>
   <h1 class="Highscoretext">Highscores</h1>
@@ -31,7 +29,8 @@
       </div>
       <div class="row">
         <div class="player_date col-sm">
-          <%= games.player %>,<%= games.score_date %>
+          <% const scoreDate = new Date (games.score_date); %> <%= games.player
+          %>,<%= scoreDate.toLocaleDateString('se-SE'); %>
         </div>
       </div>
     </div>

@@ -30,10 +30,12 @@ router.get("/:urlSlug", async function (req, res) {
 
   const result2 = await db.query(sql2, [urlSlug]);
 
+  const score = result2.rows[0];
+
   res.render("gameInfo", {
-    title: "title",
+    title: score.title,
     game: result.rows,
-    score: result2.rows,
+    score: score,
   });
 });
 
