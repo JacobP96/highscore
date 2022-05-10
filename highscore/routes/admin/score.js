@@ -16,11 +16,10 @@ router.post("/new", async (req, res) => {
   const { game, player, date, points } = req.body;
 
   const highscore = {
-    game,
+    game: generateGame(game),
     player,
     date,
     points,
-    UrlSlug: generateURLSlug(game),
   };
   const db = req.app.locals.db;
 
@@ -35,9 +34,8 @@ async function saveHighscore(highscore, db) {
           game,
           player,
           score_date,
-          points,
-          url_slug
-        ) VALUES ($1,$2,$3,$4,$5)
+          points
+        ) VALUES ($1,$2,$3,$4)
     `;
 
   await db.query(sql, [
@@ -45,12 +43,11 @@ async function saveHighscore(highscore, db) {
     highscore.player,
     highscore.date,
     highscore.points,
-    highscore.UrlSlug,
   ]);
 }
 
-const generateURLSlug = (game) => {
-  return game;
+const generateGame = (Game) => {
+  return Game.replace(" ", "-").toLowerCase();
 };
 
 async function getHighscore(db) {

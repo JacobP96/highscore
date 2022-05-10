@@ -11,7 +11,7 @@ router.get("/:urlSlug", async function (req, res) {
   SELECT
    * 
    from score
-   WHERE url_slug = $1
+   WHERE game = $1
    order by points DESC 
    Limit 10
 
@@ -21,7 +21,7 @@ router.get("/:urlSlug", async function (req, res) {
   SELECT
    * 
    from game
-   WHERE title = $1
+   WHERE url_slug = $1
   
 
 `;
