@@ -6,22 +6,15 @@ router.get("/", async function (req, res) {
   const db = req.app.locals.db;
 
   const sql = `
-  SELECT *
-  FROM
-    score
-    ORDER BY points DESC;
+  select * from score
+  inner join game
+  on score.game = game.url_slug
+  order by points DESC
+  
 
-`;
-  const sql2 = `
-  SELECT title,
-  url_slug
-  FROM
-    game
 `;
 
   const result = await db.query(sql);
-
-  const result2 = await db.query(sql2);
 
   (highscores = result.rows),
     (highscores = highscores.reduce((acc, cur) => {
@@ -36,12 +29,9 @@ router.get("/", async function (req, res) {
       }
     }, []));
 
-  gameTitle = result2.rows;
-
   res.render("index", {
     title: "highscore",
     allHighscores: highscores,
-    Titlegame: gameTitle,
   });
 });
 

@@ -1,13 +1,12 @@
 <section>
   <h1 class="Highscoretext">Highscores</h1>
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <% allHighscores.forEach(highscore => { %> <% Titlegame.forEach(Titlegame =>
-  {%>
+  <% allHighscores.forEach(highscore => { %>
   <a href="/games/<%= highscore.game %>">
     <div class="highscore">
       <div class="container">
         <div class="row">
-          <div class="game col-sm"><%= Titlegame.title %></div>
+          <div class="game col-sm"><%= highscore.title %></div>
           <div class="points col-sm"><%= highscore.points %></div>
         </div>
         <div class="row">
@@ -19,5 +18,5 @@
       </div>
     </div>
   </a>
-  <% }) %> <% }) %>
+  <% }) %>
 </section>

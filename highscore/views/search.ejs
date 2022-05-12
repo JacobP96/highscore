@@ -4,15 +4,16 @@
   <div class="text-center mb-4">
     Hittade <%= Games.length %> träffar på "<%= searchWord%>"
   </div>
-
-  
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <a href="/games/<%= game.url_slug %>">
     <div class="highscore">
-      <a href="/games/<%= game.url_slug %>">
       <div class="container">
         <div class="row">
           <div class="col">
-            <span class="game"><%= game.title %></span>
-            <div><%= game.genre %>,<%= game.release_date %></div>
+            <span class="game col-sm"><%= game.title %></span>
+            <div class="player_date col-sm">
+              <%= game.genre %>,<%= game.release_date %>
+            </div>
           </div>
 
           <div class="col searchImg">
